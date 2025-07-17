@@ -47,7 +47,7 @@ MM_01_CTC <- Read10X(data.dir = file.path(input_dir,  "count files", "MM_01_CTC"
 MM_01_CTC <- MM_01_CTC[!grepl('^IGH|^IGK|^IGL', rownames(MM_01_CTC), perl = TRUE),]
 MM_01_CTC <- CreateSeuratObject(MM_01_CTC, project = 'Plasmacells')
 select.cells_MM_01_CTC <- fread(file.path(input_dir, "barcodes", "barcodes_MM_01_CTC.csv"), header = TRUE, sep = ',')
-MM_01_CTC <- subset(MM_01_CTC, cells = select.cells_MM_01_BM$x)
+MM_01_CTC <- subset(MM_01_CTC, cells = select.cells_MM_01_CTC$x)
 MM_01_CTC[["Source"]] <- "CTC"
 MM_01_CTC[["Sample_ID"]] <- "MM_01_CTC"
 MM_01_CTC[["ID"]] <- "MM_01"
